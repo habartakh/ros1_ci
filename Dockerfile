@@ -24,9 +24,9 @@ RUN mkdir -p /catkin_ws/src
 WORKDIR /catkin_ws/src
 
 # Copy the files in the current directory into the container
-COPY tortoisebot/ /catkin_ws/src/tortoisebot
-COPY ros1_ci/entrypoint.sh /catkin_ws/ros_entrypoint.sh
-COPY tortoisebot_waypoints/ /catkin_ws/src/tortoisebot_waypoints
+COPY ./tortoisebot/ /catkin_ws/src/tortoisebot
+COPY ./tortoisebot_waypoints/ /catkin_ws/src/tortoisebot_waypoints
+COPY ./entrypoint.sh /catkin_ws/ros_entrypoint.sh
 
 # # Add the tortoisebot testing package from git
 # RUN git clone https://github.com/habartakh/tortoisebot_waypoints.git
