@@ -13,7 +13,7 @@ GAZEBO_PID=$!
 # Optionally sleep to allow Gazebo to load
 sleep 5
 
-# Start the ROS 2 action server
+# Start the ROS action server
 echo "Launching Tortoisebot Waypoints action server..."
 rosrun tortoisebot_waypoints tortoisebot_action_server.py &
 SERVICE_PID=$!

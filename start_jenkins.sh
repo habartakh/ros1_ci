@@ -6,7 +6,7 @@ set -e
 # Set the JENKINS_HOME environment variable. This will cause
 # Jenkins will run from this directory.
 # Create the JENKINS_HOME directory if it doesn't exist.
-export JENKINS_HOME=~/simulation_ws/src/ros1_ci/jenkins
+export JENKINS_HOME=/home/user/jenkins
 mkdir -p $JENKINS_HOME
 
 # Install java. We are using JRE 17.
@@ -15,7 +15,7 @@ sudo apt-get install -y openjdk-17-jre
 
 # Download the Jenkins .war file, if not there already
 cd ~
-JENKINS_FILE="/home/user/simulation_ws/src/ros1_ci/jenkins.war"
+JENKINS_FILE="/home/user/jenkins.war"
 if [ ! -f "$JENKINS_FILE" ]; then
      wget https://updates.jenkins.io/download/war/2.463/jenkins.war
 fi
@@ -49,7 +49,7 @@ else
     # about the Jenkins instance
     # Save the running instance info to the file
     # This is just for your convenience
-    STATE_FILE=~/simulation_ws/src/ros1_ci/jenkins__pid__url.txt
+    STATE_FILE=~/jenkins__pid__url.txt
     touch $STATE_FILE
     echo "To stop Jenkins, run:" > $STATE_FILE
     echo "kill $JENKINS_PID" >> $STATE_FILE
