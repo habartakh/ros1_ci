@@ -48,7 +48,13 @@ This repository has been setup in a way that any pull request will start a build
 To do that, a webhook leading to the Jenkins Console URL has been created on this Git Repo.  
 
 However, the webhook should be modified as after each start up of Jenkins, a random URL is generated.  
-Thus, please inform me of the current Jenkins URL so that I can modify the webhook in my Git Repo. 
+Thus, please inform me of the current Jenkins URL so that I can modify the webhook in my Git Repo.
+
+It is possible to get the current GitHub webhokk by running the following: 
+
+```
+echo "$(jenkins_address)github-webhook/"
+```
 
 
 
