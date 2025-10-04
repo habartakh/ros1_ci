@@ -1,0 +1,27 @@
+Commands:
+
+From ros1_ci/, run: 
+docker build -t tortoisebot-gazebo .
+
+Then run:
+docker run -it -v /tmp/.X11-unix/:/tmp/.X11-unix tortoisebot-gazebo
+
+mkdir -p ~/ros_jenkins_ws/src
+cd ~/ros_jenkins_ws
+
+#!/bin/bash
+cd /home/user/ros_jenkins_ws/src
+echo "Will check if we need to clone or just pull"
+if [ ! -d "ros1_ci" ]; then
+  git clone https://github.com/habartakh/ros1_ci.git
+else
+  cd ros1_ci
+  git pull origin main
+fi
+
+# Build the docker image
+cd ~/ros_jenkins_ws/src/ros1_ci
+docker build -t tortoisebot-gazebo .
+
+# Then start a container of the image:
+docker run -v /tmp/.X11-unix/:/tmp/.X11-unix tortoisebot-gazebo
